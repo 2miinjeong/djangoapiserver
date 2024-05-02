@@ -22,7 +22,8 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip3 install django
+          pip3 install djangorestframework
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
@@ -38,7 +39,7 @@ jobs:
           docker build -t $REPO .
           docker tag $REPO:latest $NAME/$REPO:lastest
           docker push $NAME/$REPO:latest
-          
+
 
 
 
